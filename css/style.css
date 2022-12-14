@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;400&family=Great+Vibes&display=swap');
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+}
+:root{
+    --white : #f1f1f1;
+    --text : #d4d4d4;
+    --black-1: #111;
+    --black-2: #222;
+    --hover_color : #eb4747;
+    --transition : .5s ease-in-out;
+}
+body{
+    background: #fefefe;
+    height: 10000px;
+}
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-thumb{
+    background: linear-gradient(to bottom , #eb4747 ,#fb2222);
+    border-radius: 5px;
+}
+a{
+    text-decoration: none !important;
+}
+/* ----------------------------------------- */
+/* Start NavBar */
+nav {
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: var(--transition);
+    z-index: 10;
+}
+nav.add-bg{
+    background-color:#003371
+    
+}
+nav .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height:100%;
+    
+}
+/* Logo */
+nav .logo{
+    border: 2px solid;
+    border-image: linear-gradient(30deg,#ff0d0d 0%, transparent 20%)1;
+    padding:0 5px;
+}
+nav .logo a{
+    color: var(--white);
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    font-size: 30px;
+    display: block;
+}
+nav .lists{
+    transition: var(--transition) !important;
+}
+nav .lists ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+}
+nav .lists ul li{
+    margin-inline: 5px;
+}
+nav ul li.logo{
+    display: none;
+}
+nav .lists ul li a{
+    color: var(--white);
+    display: block;
+    padding: 10px 5px;
+    transition: var(--transition);
+}
+nav .lists ul li:hover a{
+    color: var(--hover_color);
+}   
+
+/* Icons Bar */
+nav .icons{
+    cursor: pointer;
+}
+nav .icons svg{
+    display: none;
+    font-size: 20px;
+    color: var(--white);
+}
+/* End NavBar */
+/* Start Header */
+.c-item{
+    height: 100vh;
+    background-image: url("../image/head-main.jpg");
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
+.c-item .info-head{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0101017c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.c-item .info-head .content{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.c-item .info-head .content h1{
+    font-size: 50px;
+    color: var(--white);
+    margin-bottom: 20px;
+}
+.c-item .info-head .content p{
+    color: var(--text);
+    font-weight: 400;
+    line-height: 1.7;
+    font-size: 18px;
+    background: #0000009b;
+    padding: 5px;
+    width: fit-content;
+    text-align: center;
+}
+/* End Header */
+/* Responsive */
+@media screen and (max-width : 991px){
+    nav .icons svg.fa-bars{
+        display: block;
+        /* margin-left: 100px; */
+    }
+    
+    nav .lists{
+        width: 50%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: -350px;
+        background-color: #22222203;
+        backdrop-filter: blur(20px);
+        transition: var(--transition);
+    }
+    nav .lists ul{
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        padding-top: 50px;
+    }
+    nav .lists ul li{
+        padding-right: 20px;
+    }
+    nav .logo.close_logo{
+        visibility: hidden;
+        transition-delay: .3s;
+    }
+    nav ul li.logo{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        margin-bottom: 50px;
+        visibility: visible;
+        border: none;
+        padding-right: 0px;
+    }
+    nav ul li.logo a{
+        display: inline-block;
+        border: 2px solid;
+        border-image: linear-gradient(225deg,#ff0d0d 0%, transparent 20%)1;
+        padding-block: 0;
+    }
+    nav .lists.active-list{
+        right: 0;
+    }
+}
